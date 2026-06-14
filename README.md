@@ -28,3 +28,9 @@ docker run --gpus all swamp7/wildrig-miner:0.48.3 \
 
 See the upstream release notes for the full algorithm list and per-coin
 example commands at https://github.com/andru-kun/wildrig-multi/releases
+
+<img width="1334" height="1853" alt="image" src="https://github.com/user-attachments/assets/4db67df5-1cfd-41d0-b582-0d6ad174e652" />
+
+***
+-a pearlhash -o pool.pearlhash.xyz:9000 -u wallet.worker
+***
