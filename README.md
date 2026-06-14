@@ -32,5 +32,7 @@ example commands at https://github.com/andru-kun/wildrig-multi/releases
 <img width="1334" height="1853" alt="image" src="https://github.com/user-attachments/assets/4db67df5-1cfd-41d0-b582-0d6ad174e652" />
 
 ***
--a pearlhash -o pool.pearlhash.xyz:9000 -u wallet.worker
+```bash
+    -a pearlhash -o pool.pearlhash.xyz:9000 -u wallet.worker
+```
 ***
