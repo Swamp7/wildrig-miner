@@ -10,7 +10,8 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 
 | Tag | wildrig-multi version | Notes |
 |---|---|---|
-| `swamp7/wildrig-miner:latest` | 0.49.5 | rolls forward with each release |
+| `swamp7/wildrig-miner:latest` | 0.49.6 | rolls forward with each release |
+| `swamp7/wildrig-miner:0.49.6` | 0.49.6 | pearlhash bump for RTX 3000/4000 + A100 + CMP170HX (unlocked) |
 | `swamp7/wildrig-miner:0.49.5` | 0.49.5 | AMD 9000 pearlhash +10%; fixes non-pearlhash algos broken since 0.48.4 |
 | `swamp7/wildrig-miner:0.49.4` | 0.49.4 | pearlhash perf bump for RTX 3000/4000/5000 (default kernel now 2; old via `--pearlhash-kernel 1`); CMP 170HX sm80 kernel default |
 | `swamp7/wildrig-miner:0.49.3` | 0.49.3 | pearlhash RAM fix, RTX 4000 qhash fix, AMD 6000 pearlhash fix, restores AMD support for non-pearlhash algos |
@@ -20,12 +21,12 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 | `swamp7/wildrig-miner:0.48.0` | 0.48.0 | first build |
 
 Pin to an exact version tag in production; the `:latest` tag follows the
-newest release (currently 0.49.5).
+newest release (currently 0.49.6).
 
 ## Usage
 
 ```bash
-docker run --gpus all swamp7/wildrig-miner:0.49.5 \
+docker run --gpus all swamp7/wildrig-miner:0.49.6 \
     --algo <algorithm> \
     --url stratum+tcp://<pool>:<port> \
     --user <wallet>.<worker>
