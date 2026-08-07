@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends wget ca-certificates ocl-icd-libopencl1 \
     && mkdir -p /wildrig /etc/OpenCL/vendors \
     && echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd \
-    && wget -O /tmp/wildrig.tar.gz https://github.com/andru-kun/wildrig-multi/releases/download/0.49.8/wildrig-multi-linux-0.49.8.tar.gz \
+    && wget -O /tmp/wildrig.tar.gz https://github.com/andru-kun/wildrig-multi/releases/download/0.49.9/wildrig-multi-linux-0.49.9.tar.gz \
     && tar -xzf /tmp/wildrig.tar.gz -C /wildrig \
     && rm /tmp/wildrig.tar.gz \
     && chmod +x /wildrig/wildrig-multi \
