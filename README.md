@@ -10,9 +10,10 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 
 | Tag | wildrig-multi version | Notes |
 |---|---|---|
-| `swamp7/wildrig-miner:latest` | 0.51.2 | rolls forward with each release |
-| `swamp7/wildrig-miner:0.51.2` | 0.51.2 | stability fixes; slightly better efficiency on RTX 5000; V100 pearlhash bump; AMD pearlhash fixed + bumps for AMD 6000/7000/9000 |
-| `swamp7/wildrig-miner:0.51.2` | 0.51.1 | pearlhash +5% on H20/H100/H200/H800; minor CMP 70HX/90HX bump |
+| `swamp7/wildrig-miner:latest` | 0.51.3 | rolls forward with each release |
+| `swamp7/wildrig-miner:0.51.3` | 0.51.3 | pearlhash power efficiency up to +10% across all NVIDIA GPUs |
+| `swamp7/wildrig-miner:0.51.3` | 0.51.2 | stability fixes; slightly better efficiency on RTX 5000; V100 pearlhash bump; AMD pearlhash fixed + bumps for AMD 6000/7000/9000 |
+| `swamp7/wildrig-miner:0.51.3` | 0.51.1 | pearlhash +5% on H20/H100/H200/H800; minor CMP 70HX/90HX bump |
 | `swamp7/wildrig-miner:0.51.0` | 0.51.0 | pearlhash bumps for RTX 2000/3000/4000 + CMP 40HX/50HX; small RTX 5000 + H100 bump |
 | `swamp7/wildrig-miner:0.50.9.1` | 0.50.9.1 | hotfix — fixes H20/H100/H200/H800 broken in 0.50.9; small pearlhash bump on same |
 | `swamp7/wildrig-miner:0.50.9` | 0.50.9 | pearlhash +50% on B200 (~1.4 PH/s @ 990W); NEW B300 support (~790 TH/s @ 1000W). ⚠️ H100/H200 broken — use 0.50.9.1+ |
@@ -37,12 +38,12 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 | `swamp7/wildrig-miner:0.48.0` | 0.48.0 | first build |
 
 Pin to an exact version tag in production; the `:latest` tag follows the
-newest release (currently 0.51.2).
+newest release (currently 0.51.3).
 
 ## Usage
 
 ```bash
-docker run --gpus all swamp7/wildrig-miner:0.51.2 \
+docker run --gpus all swamp7/wildrig-miner:0.51.3 \
     --algo <algorithm> \
     --url stratum+tcp://<pool>:<port> \
     --user <wallet>.<worker>
