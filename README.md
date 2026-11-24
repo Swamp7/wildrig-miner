@@ -10,15 +10,20 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 
 | Tag | wildrig-multi version | Notes |
 |---|---|---|
-| `swamp7/wildrig-miner:latest` | 0.51.8 | rolls forward with each release |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.8 | minor `pearlhash` bumps on RTX 3000/4000/5000; `pearlhash` bump on A100/CMP170HX; AMD RDNA2/RDNA3 `pearlhash` bump |
+| `swamp7/wildrig-miner:latest` | 0.52.3 | rolls forward with each release |
+| `swamp7/wildrig-miner:0.52.3` | 0.52.3 | `pearlhash` power efficiency +4% on RTX 2000/3000/4000/5000 |
+| `swamp7/wildrig-miner:0.52.2` | 0.52.2 | slight `pearlhash` bump on Turing + CMP 70HX/90HX; **NEW: `--pearlhash-kernel 2` for Turing + CMP 40HX/50HX** (lock mem 405/810 MHz for decent speed) |
+| `swamp7/wildrig-miner:0.52.1` | 0.52.1 | **MANDATORY update from 0.52.0**; `pearlhash` power efficiency +8% on NVIDIA; AMD `pearlhash` bumps; mem clock 405/810 MHz lockable on NVIDIA including CMP series |
+| `swamp7/wildrig-miner:0.52.0` | 0.52.0 | ⚠️ **BROKEN — produces reject shares on RTX 3000/4000 (likely 5000 too). Do NOT use. Upgrade to 0.52.1+.** |
+| `swamp7/wildrig-miner:0.51.9` | 0.51.9 | improved network backend — fewer stale shares on `pearlhash`; efficiency bumps on RTX 2000/3000/4000/5000; AMD RDNA4 bumps |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.8 | minor `pearlhash` bumps on RTX 3000/4000/5000; `pearlhash` bump on A100/CMP170HX; AMD RDNA2/RDNA3 `pearlhash` bump |
 | `swamp7/wildrig-miner:0.51.7` | 0.51.7 | `pearlhash` power efficiency +4% on RTX 3000/4000/5000; AMD 9070/9060 XT bump; **fewer stale shares**; **fix for `Dark power I feel…` error on newer NVIDIA drivers** |
 | `swamp7/wildrig-miner:0.51.6` | 0.51.6 | `pearlhash` +4% speed/efficiency on RTX 3000/4000/5000; V100 `pearlhash` bump; `qhash` bumps on NVIDIA + AMD |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.5 | pearlhash +5% on RTX 3000/4000 (lock mem clock to 810 MHz for max perf); slightly better `--pearlhash-kernel 2` for RTX 5000 |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.4 | **new power-efficient pearlhash kernel** via `--pearlhash-kernel 2` — up to +15% speed on stock-clock GPUs; properly-tuned GPUs gain power efficiency when mem clock is locked to 810 MHz |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.3 | pearlhash power efficiency up to +10% across all NVIDIA GPUs |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.2 | stability fixes; slightly better efficiency on RTX 5000; V100 pearlhash bump; AMD pearlhash fixed + bumps for AMD 6000/7000/9000 |
-| `swamp7/wildrig-miner:0.51.8` | 0.51.1 | pearlhash +5% on H20/H100/H200/H800; minor CMP 70HX/90HX bump |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.5 | pearlhash +5% on RTX 3000/4000 (lock mem clock to 810 MHz for max perf); slightly better `--pearlhash-kernel 2` for RTX 5000 |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.4 | **new power-efficient pearlhash kernel** via `--pearlhash-kernel 2` — up to +15% speed on stock-clock GPUs; properly-tuned GPUs gain power efficiency when mem clock is locked to 810 MHz |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.3 | pearlhash power efficiency up to +10% across all NVIDIA GPUs |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.2 | stability fixes; slightly better efficiency on RTX 5000; V100 pearlhash bump; AMD pearlhash fixed + bumps for AMD 6000/7000/9000 |
+| `swamp7/wildrig-miner:0.52.3` | 0.51.1 | pearlhash +5% on H20/H100/H200/H800; minor CMP 70HX/90HX bump |
 | `swamp7/wildrig-miner:0.51.0` | 0.51.0 | pearlhash bumps for RTX 2000/3000/4000 + CMP 40HX/50HX; small RTX 5000 + H100 bump |
 | `swamp7/wildrig-miner:0.50.9.1` | 0.50.9.1 | hotfix — fixes H20/H100/H200/H800 broken in 0.50.9; small pearlhash bump on same |
 | `swamp7/wildrig-miner:0.50.9` | 0.50.9 | pearlhash +50% on B200 (~1.4 PH/s @ 990W); NEW B300 support (~790 TH/s @ 1000W). ⚠️ H100/H200 broken — use 0.50.9.1+ |
@@ -43,12 +48,12 @@ Image: [`swamp7/wildrig-miner`](https://hub.docker.com/r/swamp7/wildrig-miner)
 | `swamp7/wildrig-miner:0.48.0` | 0.48.0 | first build |
 
 Pin to an exact version tag in production; the `:latest` tag follows the
-newest release (currently 0.51.8).
+newest release (currently 0.52.3).
 
 ## Usage
 
 ```bash
-docker run --gpus all swamp7/wildrig-miner:0.51.8 \
+docker run --gpus all swamp7/wildrig-miner:0.52.3 \
     --algo <algorithm> \
     --url stratum+tcp://<pool>:<port> \
     --user <wallet>.<worker>
